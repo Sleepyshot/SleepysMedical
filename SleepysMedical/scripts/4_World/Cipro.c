@@ -6,7 +6,8 @@ class Cipro: TestInjector
 	{
 		float agent_count = player.GetSingleAgentCount(eAgents.SALMONELLA)
         
-		if (player.GetSingleAgentCount(eAgents.SALMONELLA) > 0)
+		if (agent_count > 0)
 			player.m_AgentPool.AddAgent(eAgents.SALMONELLA, -agent_count);
+			player.GetModifiersManager().DeactivateModifier(eModifiers.MDF_SALMONELLA);
 	}
 };

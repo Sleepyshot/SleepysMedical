@@ -6,7 +6,9 @@ class Zinacef: Epinephrine
 	{
 		float agent_count = player.GetSingleAgentCount(eAgents.WOUND_AGENT)
         
-		if (player.GetSingleAgentCount(eAgents.WOUND_AGENT) > 0)
-			player.m_AgentPool.AddAgent(eAgents.WOUND_AGENT, -agent_count);
+		if (agent_count > 0)
+			player.m_AgentPool.AddAgent(eAgents.WOUND_AGENT, -agent_count );
+			player.GetModifiersManager().DeactivateModifier(eModifiers.MDF_WOUND_INFECTION1);
+			player.GetModifiersManager().DeactivateModifier(eModifiers.MDF_WOUND_INFECTION2);
 	}
 };

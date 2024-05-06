@@ -6,7 +6,8 @@ class Tamiflu: Epinephrine
 	{
 		float agent_count = player.GetSingleAgentCount(eAgents.INFLUENZA)
         
-		if (player.GetSingleAgentCount(eAgents.INFLUENZA) > 0)
+		if (agent_count > 0)
 			player.m_AgentPool.AddAgent(eAgents.INFLUENZA, -agent_count);
+			player.GetModifiersManager().DeactivateModifier(eModifiers.MDF_INFLUENZA);
 	}
 };

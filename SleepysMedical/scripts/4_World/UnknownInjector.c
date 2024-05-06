@@ -6,7 +6,7 @@ class UnknownInjector: Epinephrine
 	{
 		if (!player)
 			return;
-        float disease_selection = Math.RandomFloat(1,4);
+        float disease_selection = Math.RandomInt(1,4);
         
         if (disease_selection == 1)
         {
@@ -43,7 +43,7 @@ class UnknownInjector: Epinephrine
                 return;
             }
             // wound infection1 in 100 agents wound infection2 in 250 agents
-            player.m_AgentPool.AddAgent(eAgents.WOUND_AGENT, 100);// keep the min because we aquire more when activated
+            player.m_AgentPool.AddAgent(eAgents.WOUND_AGENT, 50);
         }
 	}	
 };

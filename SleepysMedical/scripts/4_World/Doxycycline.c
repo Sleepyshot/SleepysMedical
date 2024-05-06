@@ -6,7 +6,8 @@ class Doxycycline: Epinephrine
 	{
 		float agent_count = player.GetSingleAgentCount(eAgents.CHOLERA)
         
-		if (player.GetSingleAgentCount(eAgents.CHOLERA) > 0)
+		if (agent_count > 0)
 			player.m_AgentPool.AddAgent(eAgents.CHOLERA, -agent_count);
+			player.GetModifiersManager().DeactivateModifier(eModifiers.MDF_CHOLERA);
 	}
 };
