@@ -4,10 +4,7 @@ class Doxycycline: Epinephrine
 	
 	override void OnApply(PlayerBase player)
 	{
-		float agent_count = player.GetSingleAgentCount(eAgents.CHOLERA)
-        
-		if (agent_count > 0)
-			player.m_AgentPool.AddAgent(eAgents.CHOLERA, -agent_count);
+			player.m_AgentPool.AddAgent(eAgents.CHOLERA, -1000);
 			player.GetModifiersManager().DeactivateModifier(eModifiers.MDF_CHOLERA);
 	}
 };
