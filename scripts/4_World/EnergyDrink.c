@@ -15,6 +15,14 @@ class EnergyDrink : SodaCan_ColorBase
 
 		consumer.GetModifiersManager().ActivateModifier(eModifiers1.MDF_ENERGY_DRINK);
 
+		 //epi pen
+		if (consumer.GetModifiersManager().IsModifierActive(eModifiers.MDF_EPINEPHRINE)) //effectively resets the timer
+		{
+			consumer.GetModifiersManager().DeactivateModifier(eModifiers.MDF_EPINEPHRINE);
+		}
+
+		consumer.GetModifiersManager().ActivateModifier(eModifiers.MDF_EPINEPHRINE);
+
 	}
 
     override void SetActions()
@@ -25,3 +33,4 @@ class EnergyDrink : SodaCan_ColorBase
 		AddAction(ActionDrinkCan);
 	}
 }
+

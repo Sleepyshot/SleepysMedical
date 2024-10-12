@@ -1,7 +1,6 @@
 class BioStimMdfr: ModifierBase
 {
-    const int LIFETIME = 60;
-    bool is_stomach_empty = false;
+    const int LIFETIME = 5;
     float current_water;
     float current_energy;
 	int set_hydration = 100;
@@ -14,7 +13,7 @@ class BioStimMdfr: ModifierBase
 		m_ID 					= eModifiers1.MDF_BIOSTIM;
 		m_TickIntervalInactive 	= DEFAULT_TICK_TIME_INACTIVE;
 		m_TickIntervalActive 	= 1;
-		//DisableDeactivateCheck();
+
 	}
 	
 	override bool ActivateCondition(PlayerBase player)
@@ -48,6 +47,11 @@ class BioStimMdfr: ModifierBase
         current_energy = player.GetStatEnergy().Get();
 		player.IncreaseHealingsCount();
 
+		if (player.GetHealth("","Health") > 100)
+		{
+			player.AddHealth("","", - 100)// kill the player
+		}
+
 		if (current_energy < PlayerConstants.LOW_ENERGY_THRESHOLD || current_water < PlayerConstants.LOW_WATER_THRESHOLD)
 		{
 				player.AddHealth("", "", -100);// kill the player
@@ -68,11 +72,11 @@ class BioStimMdfr: ModifierBase
     override void OnDeactivate(PlayerBase player)
 	{
 		player.DecreaseHealingsCount();
+		
 	}
 
 	override void OnTick(PlayerBase player, float deltaT)
 	{
-        player.GetStatEnergy().Add( -0.5 );
-		player.GetStatWater().Add( -0.5 );
+
     }
 };

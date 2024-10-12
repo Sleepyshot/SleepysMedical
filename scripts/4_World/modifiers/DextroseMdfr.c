@@ -1,9 +1,9 @@
 class DextroseMdfr: ModifierBase
 {
     const int LIFETIME = 60;
-    float water_multiplier = 2 // 1 will remove the multiplier 2 will double... and so on
+    float water_multiplier = 1 // 1 will remove the multiplier 2 will double... and so on
     float energy_multiplier = 2
-    float blood_multiplier = 2
+    float blood_multiplier = 1
  
 	ref HumanMovementState		m_MovementState	= new HumanMovementState();
 		
@@ -51,18 +51,10 @@ class DextroseMdfr: ModifierBase
 	}
 
 	override void OnTick(PlayerBase player, float deltaT)
-	{
-		player.GetMovementState(m_MovementState);
-		float energy = player.GetStatEnergy().Get();
-		float metabolic_speed = MiscGameplayFunctions.GetEnergyMetabolicSpeed(m_MovementState.m_iMovement);// the speed at which the player uses their energy based on their current movement
-		
-		float modifier = energy/PlayerConstants.SL_ENERGY_MAX + PlayerConstants.CONSUMPTION_MULTIPLIER_BASE; 
-		metabolic_speed *= modifier; //non linear shaping for consumption curve (comment out to have it linear)
-		
-		player.GetStatEnergy().Add( (metabolic_speed * deltaT) * energy_multiplier);	// with a positive value we get the opposite effect of the energy consuption an thus we counter act it for a short time	
+	{	
 		player.AddHealth("", "Blood", (PlayerConstants.SALINE_BLOOD_REGEN_PER_SEC * deltaT) * blood_multiplier);
-		player.GetStatWater().Add( (PlayerConstants.SALINE_WATER_REGEN_PER_SEC * deltaT) * water_multiplier);
-       
+		player.GetStatWater().Add((PlayerConstants.SALINE_WATER_REGEN_PER_SEC * deltaT) * water_multiplier);
+       player.GetStatEnergy().Add((PlayerConstants.SALINE_WATER_REGEN_PER_SEC * deltaT) * energy_multiplier);
 	}
 };
 

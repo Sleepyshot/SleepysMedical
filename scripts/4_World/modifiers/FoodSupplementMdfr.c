@@ -39,6 +39,7 @@ class FoodSupplementMdfr: ModifierBase
 
     override void OnActivate(PlayerBase player)
 	{
+
 		player.IncreaseHealingsCount();
 	}
 
@@ -49,13 +50,7 @@ class FoodSupplementMdfr: ModifierBase
 
 	override void OnTick(PlayerBase player, float deltaT)
 	{
-		player.GetMovementState(m_MovementState);
-		float energy = player.GetStatEnergy().Get();
-		float metabolic_speed = MiscGameplayFunctions.GetEnergyMetabolicSpeed(m_MovementState.m_iMovement);// the speed at which the player uses their energy based on their current movement
 		
-		float modifier = energy/PlayerConstants.SL_ENERGY_MAX + PlayerConstants.CONSUMPTION_MULTIPLIER_BASE; 
-		metabolic_speed *= modifier; //non linear shaping for consumption curve (comment out to have it linear)
-		
-		player.GetStatEnergy().Add( metabolic_speed * deltaT );	// with a positive value we get the opposite effect of the energy consuption an thus we counter act it for a short time
+		player.GetStatEnergy().Add( 2 * deltaT );
 	}
 };

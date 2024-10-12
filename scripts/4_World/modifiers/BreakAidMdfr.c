@@ -1,6 +1,6 @@
 class BreakAidMdfr: ModifierBase
 {
-    const int LIFETIME = 60;
+    const int LIFETIME = 5;
 	private const 	float	HEALTHY_LEG = 100; //Health at which legs are no longer considered broken
 
 	override void Init()

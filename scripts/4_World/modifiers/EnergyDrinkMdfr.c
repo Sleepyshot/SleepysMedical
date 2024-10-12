@@ -49,14 +49,13 @@ class EnergyDrinkMdfr: ModifierBase
 
 	override void OnTick(PlayerBase player, float deltaT)
 	{
-        float regen_modifier_water = PlayerConstants.BLOOD_REGEN_MODIFIER_WATER_MID;
+		float regen_modifier_water = PlayerConstants.BLOOD_REGEN_MODIFIER_WATER_MID;
 		float regen_modifier_energy = PlayerConstants.BLOOD_REGEN_MODIFIER_ENERGY_MID;
-
         float blood_regen_speed = PlayerConstants.BLOOD_REGEN_RATE_PER_SEC * regen_modifier_water * regen_modifier_energy; // set regen rate
-		player.AddHealth("","Blood", blood_regen_speed * deltaT );// regenerate blood
+		player.AddHealth("","Blood", (blood_regen_speed * deltaT));// regenerate blood
 
 		player.GiveShock(100);// counter any shock damage that the player recieves
-		player.GetStatEnergy().Add( 1 );	//add nutrition over time
-        player.GetStatWater().Add( -1 );	//lower hydration over time
+		player.GetStatEnergy().Add( 10  * deltaT );	//add nutrition over time
+        player.GetStatWater().Add( -2 * deltaT );	//lower hydration over time
 	}
 };

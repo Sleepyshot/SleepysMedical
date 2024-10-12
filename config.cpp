@@ -22,7 +22,7 @@ class CfgMods
 		hideName=1;
 		hidePicture=1;
 		name="SleepysMedical";
-		credits="Tylord";
+		credits="@Tylord";
 		author="Sleepyshot";
 		authorID="0";
 		version="1.0";
@@ -546,77 +546,6 @@ class CfgVehicles
 			};
 		};
 	};
-	class TxaInjector: AntiChemInjector
-	{
-		scope=2;
-		displayName="Tranexamic Acid";
-		descriptionShort="Antifibrinolytic agents are used to prevent or treat heavy bleeding following trauma";
-		model="\dz\gear\medical\Morphine.p3d";
-		debug_ItemCategory=7;
-		rotationFlags=17;
-		itemSize[]={1,2};
-		weight=60;
-		soundImpactType="plastic";
-		hiddenSelectionsTextures[]=
-		{
-			"MyModFiles\SleepysMedical\data\C10H15N1.paa"
-
-		};
-		
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=50;
-					healthLevels[]=
-					{
-						
-						{
-							1,
-							
-							{
-								"DZ\gear\medical\data\morphine.rvmat"
-							}
-						},
-						
-						{
-							0.69999999,
-							
-							{
-								"DZ\gear\medical\data\morphine.rvmat"
-							}
-						},
-						
-						{
-							0.5,
-							
-							{
-								"DZ\gear\medical\data\morphine_damage.rvmat"
-							}
-						},
-						
-						{
-							0.30000001,
-							
-							{
-								"DZ\gear\medical\data\morphine_damage.rvmat"
-							}
-						},
-						
-						{
-							0,
-							
-							{
-								"DZ\gear\medical\data\morphine_destruct.rvmat"
-							}
-						}
-					};
-				};
-			};
-		};
-	};
 	class BreakAid: AntiChemInjector
 	{
 		scope=2;
@@ -868,11 +797,11 @@ class CfgVehicles
 		weight=500;
 		isMeleeWeapon=1;
 		soundImpactType="plastic";
-		hiddenSelectionsTextures[]=
+/* 		hiddenSelectionsTextures[]=
 		{
 			"MyModFiles\SleepysMedical\data\DextroseBagIV.paa"
 
-		};
+		}; */
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -980,11 +909,11 @@ class CfgVehicles
 		weight=1000;
 		isMeleeWeapon=1;
 		soundImpactType="plastic";
-		hiddenSelectionsTextures[]=
+/* 		hiddenSelectionsTextures[]=
 		{
 			"MyModFiles\SleepysMedical\data\DextroseBag.paa"
 
-		};
+		}; */
 		class DamageSystem
 		{
 			class GlobalHealth
