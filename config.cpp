@@ -60,7 +60,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="Tamiflu";
-		descriptionShort="Oseltamivir Phoshphate: Single dose treatment of Influenza in adults";
+		descriptionShort="Oseltamivir Phoshphate: A single dose treatment of Influenza in adults";
 		model="\dz\gear\medical\Epinephrine.p3d";
 		hiddenSelectionsTextures[]=
 		{
@@ -130,7 +130,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="Doxycycline";
-		descriptionShort="Doxycycline Hyclate: Single dose treatment Best used to treat water-born illness";
+		descriptionShort="Doxycycline Hyclate: Single dose treatment used to treat cholera";
 		model="\dz\gear\medical\Epinephrine.p3d";
 		debug_ItemCategory=7;
 		rotationFlags=17;
@@ -340,7 +340,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="BioStim";
-		descriptionShort="The lable is unclear as to effects. Just says promotes healing";
+		descriptionShort="WARNING: Use sparingly causes extreme dehydration; repeated use will have increased negative effects. Known for its potent healing properties, ensure you're in a healthy state before use, as weakened conditions may amplify risks.";
 		model="\dz\gear\medical\Morphine.p3d";
 		debug_ItemCategory=7;
 		rotationFlags=17;
@@ -901,7 +901,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="Saline Dextrose Bag";
-		descriptionShort="Provides patient with large hydration and nutrition boost";
+		descriptionShort="5 percent dextrose in normal water to treat extreme dehydration or Hypernatremia";
 		model="\dz\gear\medical\SalineBag.p3d";
 		debug_ItemCategory=7;
 		rotationFlags=17;

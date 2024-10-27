@@ -3,9 +3,11 @@ class BioStimMdfr: ModifierBase
     const int LIFETIME = 5;
     float current_water;
     float current_energy;
-	int set_hydration = 100;
-	int set_energy = 100;
-
+	int energy_loss = 800;
+	int water_loss = 1800;
+    int energy_threshold = 100;
+	int water_threshold = 100;
+	int uncon_threshold = 2000;
 	override void Init()
 	{
 		m_TrackActivatedTime = true;
@@ -45,14 +47,15 @@ class BioStimMdfr: ModifierBase
 	{
 		current_water = player.GetStatWater().Get();
         current_energy = player.GetStatEnergy().Get();
+
 		player.IncreaseHealingsCount();
 
-		if (player.GetHealth("","Health") > 100)
-		{
-			player.AddHealth("","", - 100)// kill the player
+		if (current_energy < uncon_threshold || current_water < uncon_threshold)
+		{		
+			player.AddHealth("","Shock", -100);
 		}
 
-		if (current_energy < PlayerConstants.LOW_ENERGY_THRESHOLD || current_water < PlayerConstants.LOW_WATER_THRESHOLD)
+		if (current_energy < energy_threshold || current_water < water_threshold)
 		{
 				player.AddHealth("", "", -100);// kill the player
 			
@@ -60,13 +63,15 @@ class BioStimMdfr: ModifierBase
 		else
 		{
 			player.GetSymptomManager().QueueUpPrimarySymptom(SymptomIDs.SYMPTOM_VOMIT);
-			player.GetStatWater().Add( -current_water + set_hydration );// calculate full water loss
-			player.GetStatEnergy().Add( -current_energy + set_energy );// calculate full energy loss
+			player.GetStatWater().Add( -water_loss );// calculate full water loss
+			player.GetStatEnergy().Add( -energy_loss );// calculate full energy loss
 
-
-        	player.AddHealth("", "Health", 30);
-			player.AddHealth("","Shock", -100);
+			player.AddHealth("", "Health", 33);
 		}
+
+		
+			
+
 	}
 
     override void OnDeactivate(PlayerBase player)
@@ -77,6 +82,6 @@ class BioStimMdfr: ModifierBase
 
 	override void OnTick(PlayerBase player, float deltaT)
 	{
-
+		
     }
 };

@@ -55,7 +55,7 @@ class EnergyDrinkMdfr: ModifierBase
 		player.AddHealth("","Blood", (blood_regen_speed * deltaT));// regenerate blood
 
 		player.GiveShock(100);// counter any shock damage that the player recieves
-		player.GetStatEnergy().Add( 10  * deltaT );	//add nutrition over time
-        player.GetStatWater().Add( -2 * deltaT );	//lower hydration over time
+		player.GetStatEnergy().Add( 5  * deltaT );	//add nutrition over time
+        player.GetStatWater().Add( -0.5 * deltaT );	//lower hydration over time
 	}
 };

@@ -51,6 +51,6 @@ class FoodSupplementMdfr: ModifierBase
 	override void OnTick(PlayerBase player, float deltaT)
 	{
 		
-		player.GetStatEnergy().Add( 2 * deltaT );
+		player.GetStatEnergy().Add( 0.5 * deltaT );
 	}
 };
