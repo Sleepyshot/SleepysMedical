@@ -616,7 +616,7 @@ class CfgVehicles
 			};
 		};
 	};
-	class EnergyDrink: SodaCan_Pipsi
+	class SleepysEnergyDrink: SodaCan_Pipsi
 	{
 		scope=2;
 		displayName="Energy Drink";
@@ -630,7 +630,7 @@ class CfgVehicles
 		varQuantityMax=100;
 		hiddenSelectionsTextures[]=
 		{
-			"MyModFiles\SleepysMedical\data\EnergyDrink.paa"
+			"MyModFiles\SleepysMedical\data\SleepysEnergyDrink.paa"
 		};
 		class Nutrition
 		{
